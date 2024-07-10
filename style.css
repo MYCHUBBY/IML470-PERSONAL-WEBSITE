@@ -1,0 +1,277 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Vidaloka&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Playfair Display', 'sans-serif';
+}
+
+body{
+    background: black;
+    min-height: 100vh;
+ 
+}
+
+header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    padding: 30px 100px;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo{
+    font-size: 2em;
+    color: white;
+    pointer-events: none;
+}
+
+.navigation a {
+    text-decoration: none;
+    color:white;
+    padding: 6px 15px;
+    border-radius: 20px;
+    margin: 0 10px;
+    font-weight: 600;
+}
+
+.navigation a:hover,
+.navigation a.active{
+    background: #C73659;
+    color:#EEEEEE;
+}
+
+
+.banner{
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+.banner .bg{
+    position: absolute;
+    left:0;
+    bottom:0;
+    width: 100%;
+    height: 100%;
+    background-size: cover ;
+    background-position: center bottom;
+    transition: 0.5s;
+}
+
+.banner .bg-1{
+    background-image: url(images/1.1.png);
+}
+.banner .bg-2{
+    background-image: url(images/2.png);
+}
+.banner .bg-3{
+    background-image: url(images/3.png);
+}
+.banner .bg-4{
+    background-image: url(images/4.png);
+}
+.banner .bg-5{
+    background-image: url(images/5.png);
+}
+
+.banner h1{
+    position: absolute;
+    top:30%;
+    left:0;
+    width:100%;
+    text-align: center;
+    font-size: 4.5rem;
+    color: #fff;
+    transition:0.5s;
+}
+
+.intro{
+    min-height: 50vh;
+    color:white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.intro p{
+    width: 700px;
+    max-width: 100%;
+    text-align: center;
+}
+
+@keyframes typing {
+    from {
+      width: 0;
+    }
+  }
+  
+  @keyframes blink-caret {
+    50% {
+      border-color: transparent;
+    }
+  }
+  /* When you change the amount of characters in the h1, you have to change 
+  the with: 14ch and  steps(14, end), if there is 14 characters, put 14, 
+  if there is 20 put 20 */
+  .animation {
+    font: bold 200% Consolas, Monaco, monospace;
+    color: #EEEEEE;
+    border-right: .1em solid white;
+    width: 40ch;
+    margin: 2em 2em;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 4s steps(40, end), blink-caret 1s step-end infinite;
+  }
+
+.animation-show{
+    transform:translateY(50px);
+    opacity: 0;
+    transition: 0.7s;
+}
+.active .animation-show{
+    transform: translateY(0);
+    opacity: 1;
+}
+.animation-show:nth-child(2){
+    transition-delay: 0.3s;
+}
+.animation-show:nth-child(3){
+    transition-delay: 0.6s;
+}
+.animation-show:nth-child(4){
+    transition-delay: 0.s;
+}
+
+
+/* style css for recomendation page*/
+/* carousel*/
+.carousel{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    margin-top: -50px;
+    position: relative;
+}
+
+.carousel .list .item{
+    position: absolute;
+inset: 0 0 0 0;
+}
+
+.carousel .list .item img{
+    width:100% ;
+    height:100% ;
+    object-fit: cover;
+}
+
+.carousel .list .item content{
+position: absolute;
+top: 20%;
+width: 1140px;
+max-width: 80%;
+left: 50%;
+transform: translateY(-50%);
+padding-right: 30%;
+box-sizing: border-box;
+color: #fff;
+text-shadow: 0 5px 10px #0004;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.card {
+    width: 250px;
+    height:300px ;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card::before {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    inset: 0;
+    background: linear-gradient;
+    transform: translate3d(0, 0, 0) scale(0.95);
+    filter: blur(20px);
+}
+
+.card .img-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient;
+    transition: transform 0.6s, filter 1s;
+}
+
+.card .img-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: inherit;
+    object-fit: cover;
+
+}
+
+.card .img-content svg {
+    width: 45px;
+    height: 45px;
+    fill: #e8e8e8;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.card .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 10px;
+    color: black;
+    padding: 20px;
+    line-height: 1.5;
+    border-radius: 5px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(50px);
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.card .content .heading {
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.card:hover .content {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card:hover .img-content {
+    transform: scale(2.5) rotate(30deg);
+    filter: blur(7px);
+}
+
+.card:hover .img-content svg {
+    fill: transparent;
+}
